@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ירחוני שכונת כרמל - כל הגיליונות במקום אחד">
+    <meta name="theme-color" content="#a5d8ff">
+    <title>ירחוני שכונת כרמל</title>
+    <style>
+        /* כללי */
+        body {
+            font-family: Calibri, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            background-color: #f9f9f9;
+            background-image: url('images/רקע לירחון.png');
+            background-repeat: repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            min-height: calc(100vh - 40px);
+        }
+        
+        /* כותרת ראשית */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+        }
+        
+        .logo-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo-placeholder {
+            width: 150px;
+            height: 150px;
+            background-color: #7ab648;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            color: #333;
+            background-color: #a5d8ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitle {
+            font-size: 24px;
+            color: #1a5632;
+            margin-top: 15px;
+            font-weight: 300;
+        }
+        
+        /* רשת הירחונים */
+        .magazines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .magazine-card {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .magazine-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            border-color: #a5d8ff;
+        }
+        
+        .magazine-month {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1a5632;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .magazine-year {
+            font-size: 18px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .magazine-preview {
+            background-color: #f4f29e;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .magazine-status {
+            text-align: center;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        
+        .status-available {
+            background-color: #4caf50;
+            color: white;
+        }
+        
+        .status-coming-soon {
+            background-color: #ff9800;
+            color: white;
+        }
+        
+        /* ירחון חדש - מדגיש */
+        .magazine-card.new {
+            border-color: #ff6b6b;
+            background: linear-gradient(135deg, #fff 0%, #ffe6e6 100%);
+        }
+        
+        .new-badge {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            position: absolute;
+            top: -10px;
+            right: 20px;
+        }
+        
+        .magazine-card {
+            position: relative;
+        }
+        
+        /* רספונסיביות */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 36px;
+                padding: 15px;
+            }
+            
+            .subtitle {
+                font-size: 20px;
+            }
+            
+            .magazines-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .logo-placeholder {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .logo-section {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 28px;
+                padding: 12px;
+            }
+            
+            .subtitle {
+                font-size: 18px;
+            }
+            
+            .magazine-card {
+                padding: 20px;
+            }
+            
+            .magazine-month {
+                font-size: 28px;
+            }
+        }
+        
+        /* פוטר */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px 0;
+            border-top: 2px solid #a5d8ff;
+            color: #666;
+        }
+        
+        .footer-text {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .footer-year {
+            font-size: 14px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-section">
+                <div class="logo-placeholder">
+                    <img src="images/לוגו כפר.gif" alt="לוגו כפר תקווה" width="150" height="150" style="border-radius: 15px;">
+                </div>
+            </div>
+            <h1>ירחוני שכונת כרמל</h1>
+            <p class="subtitle">כל הגיליונות במקום אחד</p>
+        </header>
+
+        <main>
+            <div class="magazines-grid">
+                <!-- יוני 2025 - החדש -->
+                <a href="June 2025/june_magazine.html" class="magazine-card new">
+                    <div class="new-badge">חדש!</div>
+                    <div class="magazine-month">יוני</div>
+                    <div class="magazine-year">2025</div>
+                    <div class="magazine-preview">
+                        הגיליון החדש של יוני כבר כאן! גלו מה קרה השנה בשכונתנו האהובה.
+                    </div>
+                    <div class="magazine-status status-available">
+                        זמין לקריאה
+                    </div>
+                </a>
+
+                <!-- מאי 2025 -->
+                <a href="may 2025/may_magazine.html" class="magazine-card">
+                    <div class="magazine-month">מאי</div>
+                    <div class="magazine-year">2025</div>
+                    <div class="magazine-preview">
+                        טיול מרהיב לגולן! פארק הירדן, חוות החיות ביער אודם, ועוד המון חוויות מהנות.
+                    </div>
+                    <div class="magazine-status status-available">
+                        זמין לקריאה
+                    </div>
+                </a>
+
+                <!-- מקום לירחונים עתידיים -->
+                <div class="magazine-card">
+                    <div class="magazine-month">יולי</div>
+                    <div class="magazine-year">2025</div>
+                    <div class="magazine-preview">
+                        הגיליון הבא בדרך... מה יקרה ביולי? חזרו בקרוב לגלות!
+                    </div>
+                    <div class="magazine-status status-coming-soon">
+                        בקרוב
+                    </div>
+                </div>
+
+                <div class="magazine-card">
+                    <div class="magazine-month">אוגוסט</div>
+                    <div class="magazine-year">2025</div>
+                    <div class="magazine-preview">
+                        עוד סיפורים מרתקים מחכים לכם. הירחון יעלה בהמשך החודש.
+                    </div>
+                    <div class="magazine-status status-coming-soon">
+                        בקרוב
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-text">ירחוני שכונת כרמל - מביאים לכם את כל החדשות והסיפורים מהשכונה</div>
+            <div class="footer-year">© 2025 - כל הזכויות שמורות</div>
+        </footer>
+    </div>
+
+    <script>
+        // אנימציה פשוטה לכרטיסי הירחונים
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.magazine-card');
+            
+            // אנימציה של כניסה
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
+            
+            // הוספת אפקט רכים ללחיצה
+            cards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (this.querySelector('.status-coming-soon')) {
+                        e.preventDefault();
+                        this.style.animation = 'shake 0.5s ease-in-out';
+                        setTimeout(() => {
+                            this.style.animation = '';
+                        }, 500);
+                    }
+                });
+            });
+        });
+        
+        // אנימציית רעידה לירחונים שעדיין לא זמינים
+        const shakeKeyframes = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-5px); }
+                75% { transform: translateX(5px); }
+            }
+        `;
+        
+        const style = document.createElement('style');
+        style.textContent = shakeKeyframes;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

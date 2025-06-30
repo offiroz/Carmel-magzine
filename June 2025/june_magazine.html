@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="ירחון שכונת כרמל - יוני 2025 - חודש יוני של חירום ופעילויות מגוונות">
+    <meta name="theme-color" content="#a5d8ff">
+    <title>ירחון שכונת כרמל - יוני 2025</title>
+    <style>
+        /* כללי */
+        body {
+            font-family: Calibri, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            background-color: #f9f9f9;
+            background-image: url('images/רקע לירחון.png');
+            background-repeat: repeat;
+            background-attachment: fixed;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* כותרות */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        header .logo {
+            width: 120px;
+            margin-bottom: 10px;
+        }
+        
+        .date {
+            text-align: left;
+            color: #333;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        
+        h1 {
+            font-size: 80px;
+            margin-bottom: -25px;
+            color: #333;
+            background-color: #a5d8ff;
+            padding: -20px;
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: 28px;
+            color: #1a5632;
+            margin-top: 30px;
+            border-bottom: 2px solid #a5d8ff;
+            padding-bottom: 10px;
+        }
+
+        h4 {
+            font-size: 46px;
+            margin-bottom: -25px;
+            color: #333;
+            background-color: #ffffff;
+            padding: -10px;
+            text-align: center;
+        }
+        
+        /* מאמרים */
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .article {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .article-box {
+            padding: 15px;
+            background-color: #f4f29e;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .highlight-box {
+            padding: 15px;
+            background-color: #e8f5e8;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .info-box {
+            padding: 15px;
+            background-color: #ffe4e1;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .activity-box {
+            padding: 15px;
+            background-color: #f0e8ff;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .emergency-box {
+            padding: 15px;
+            background-color: #ffb6c1;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 5px solid #ff6b6b;
+        }
+        
+        .celebration-box {
+            padding: 15px;
+            background-color: #ffd700;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .nature-box {
+            padding: 15px;
+            background-color: #98fb98;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .community-box {
+            padding: 15px;
+            background-color: #87ceeb;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .highlight-blue {
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        /* תמונות */
+        .img-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .img-container img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* גלריית תמונות */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .photo-gallery img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .photo-gallery img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* תגובות */
+        .testimonials {
+            background-color: #a5d8ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .testimonials h3 {
+            text-align: center;
+            margin-top: 0;
+            font-size: 24px;
+        }
+        
+        .testimonial {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        /* מיכל וידאו רספונסיבי */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+        
+        /* רספונסיביות */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 32px;
+                padding: 10px;
+            }
+            
+            h2 {
+                font-size: 24px;
+            }
+            
+            .logo-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .date {
+                text-align: center;
+                margin-top: 10px;
+            }
+            
+            .article-box, .highlight-box, .info-box, .activity-box, 
+            .emergency-box, .celebration-box, .nature-box, 
+            .community-box, .highlight-blue {
+                padding: 12px;
+            }
+            
+            .testimonials {
+                padding: 15px;
+            }
+            
+            .back-to-top {
+                width: 35px;
+                height: 35px;
+                line-height: 35px;
+                bottom: 15px;
+                left: 15px;
+            }
+            
+            .photo-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 10px;
+            }
+            
+            .photo-gallery img {
+                height: 150px;
+            }
+        }
+        
+        /* התאמה למסכים קטנים במיוחד */
+        @media (max-width: 480px) {
+            .container {
+                padding: 8px;
+            }
+            
+            h1 {
+                font-size: 28px;
+                padding: 8px;
+            }
+            
+            h2 {
+                font-size: 22px;
+                margin-top: 20px;
+            }
+            
+            h3 {
+                font-size: 20px;
+            }
+            
+            .article-box, .highlight-box, .info-box, .activity-box,
+            .emergency-box, .celebration-box, .nature-box,
+            .community-box, .highlight-blue {
+                padding: 10px;
+                margin-bottom: 15px;
+            }
+            
+            .img-container {
+                margin: 10px 0;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
+            .photo-gallery {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        /* כפתור חזרה לראש הדף */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #5abcb9;
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 99;
+            font-size: 20px;
+            transition: background-color 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background-color: #4a9997;
+        }
+        
+        .logo-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-placeholder {
+            width: 130px;
+            height: 130px;
+            background-color: #7ab648;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-section">
+                <div class="logo-placeholder">
+                    <img src="images/לוגו כפר.gif" alt="לוגו כפר תקווה" width="150" height="150">
+                </div>
+                <div class="date">יוני 2025</div>
+            </div>
+            <h4>ירחון שכונת כרמל</h4>
+            <div class="highlight-blue">
+                <h1>חודש יוני של חירום ופעילויות מגוונות</h1>
+            </div>
+        </header>
+
+        <div class="article">
+            <div class="activity-box">
+                <h2>🎯 משחק ניחושים</h2>
+                <p><strong>נסו להבין באמצעות התמונות אילו פעילויות היו לנו החודש בשכונת כרמל?</strong></p>
+                <p>בירחון הזה תמצאו תמונות מכל הפעילויות והאירועים שהתקיימו אצלנו ביוני. הסתכלו היטב על התמונות ונסו לנחש מה קרה, איפה היינו ומה עשינו!</p>
+            </div>
+        </div>
+
+        <div class="article">
+            <h2>📦 הכנת חבילות</h2>
+            
+            <div class="photo-gallery">
+                <img src="images/Pack making/1.jpeg" alt="הכנת חבילות - שקיות מוכנות על השולחן" loading="lazy">
+                <img src="images/Pack making/2.jpeg" alt="כל המשתתפים באירוע הכנת החבילות" loading="lazy">
+                <img src="images/Pack making/3.jpeg" alt="פעילות הכנת החבילות במלוא התנופה" loading="lazy">
+            </div>
+        </div>
+
+        <div class="article">
+            <h2>🏠 הפעילות בבתים</h2>
+            <div class="activity-box">
+                <h3>🎯 משחק ניחושים - איזו פעילות זאת?</h3>
+                <p><strong>הסתכלו על 18 התמונות וחברו כל תמונה לפעילות המתאימה:</strong></p>
+                <ul style="columns: 2; column-gap: 30px; list-style-type: none; padding: 0;">
+                    <li>📋 ביקורי משפחות</li>
+                    <li>🚨 הכוונה בזמן חירום</li>
+                    <li>⚽ פעילויות ספורט</li>
+                    <li>💼 תעסוקה</li>
+                    <li>🤝 תעסוקה יחד עם רכזי הסדנאות</li>
+                    <li>🧠 פעילות קוגניטיבית</li>
+                    <li>🎉 פעילויות כיף</li>
+                    <li>🏘️ שיתופי פעולה עם בתים אחרים</li>
+                    <li>👥 פעילויות עם ש"ש</li>
+                    <li>🏃 פעילויות ספורט</li>
+                    <li>🎓 מכללה עם ורדה</li>
+                    <li>🧹 ניקיון בשכונה</li>
+                </ul>
+            </div>
+            
+            <div class="photo-gallery">
+                <img src="images/Diffrents Activities/1.jpeg" alt="פעילות מס' 1" loading="lazy">
+                <img src="images/Diffrents Activities/2.jpeg" alt="פעילות מס' 2" loading="lazy">
+                <img src="images/Diffrents Activities/3.jpeg" alt="פעילות מס' 3" loading="lazy">
+                <img src="images/Diffrents Activities/4.jpeg" alt="פעילות מס' 4" loading="lazy">
+                <img src="images/Diffrents Activities/5.jpeg" alt="פעילות מס' 5" loading="lazy">
+                <img src="images/Diffrents Activities/6.jpeg" alt="פעילות מס' 6" loading="lazy">
+                <img src="images/Diffrents Activities/7.jpeg" alt="פעילות מס' 7" loading="lazy">
+                <img src="images/Diffrents Activities/8.jpeg" alt="פעילות מס' 8" loading="lazy">
+                <img src="images/Diffrents Activities/9.jpeg" alt="פעילות מס' 9" loading="lazy">
+                <img src="images/Diffrents Activities/10.jpeg" alt="פעילות מס' 10" loading="lazy">
+                <img src="images/Diffrents Activities/11.jpeg" alt="פעילות מס' 11" loading="lazy">
+                <img src="images/Diffrents Activities/12.jpeg" alt="פעילות מס' 12" loading="lazy">
+                <img src="images/Diffrents Activities/13.jpeg" alt="פעילות מס' 13" loading="lazy">
+                <img src="images/Diffrents Activities/14.jpeg" alt="פעילות מס' 14" loading="lazy">
+                <img src="images/Diffrents Activities/15.jpeg" alt="פעילות מס' 15" loading="lazy">
+                <img src="images/Diffrents Activities/16.jpeg" alt="פעילות מס' 16" loading="lazy">
+                <img src="images/Diffrents Activities/17.jpeg" alt="פעילות מס' 17" loading="lazy">
+                <img src="images/Diffrents Activities/18.jpeg" alt="פעילות מס' 18" loading="lazy">
+            </div>
+        </div>
+
+        <div class="article">
+            <h2>💒 איחולים חמים לרגל החתונה של מיכל ואופיר עובדי הרווחה</h2>
+            <div class="celebration-box">
+                <p>מזל טוב! מאחלים לכם אהבה, אושר והגשמת חלומות 💕</p>
+                <p><strong>🤔 מה אתם מאחלים להם?</strong></p>
+            </div>
+            
+            <div class="img-container">
+                <img src="images/Wedding/1.jpeg" alt="חתונת מיכל ואופיר" loading="lazy" style="max-width: 400px;">
+            </div>
+        </div>
+
+        <!-- כאן יתווספו הכתבות החדשות -->
+        
+    </div>
+    
+    <a href="#" class="back-to-top">↑</a>
+
+    <script>
+        // כפתור חזרה לראש הדף
+        window.addEventListener('scroll', function() {
+            var backToTopButton = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        document.querySelector('.back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // טעינת תמונות בעצלנות
+        document.addEventListener('DOMContentLoaded', function() {
+            if ('loading' in HTMLImageElement.prototype) {
+                const images = document.querySelectorAll('img');
+                images.forEach(img => {
+                    img.setAttribute('loading', 'lazy');
+                });
+            }
+            
+            // פונקציונליות להגדלת תמונות בגלריה
+            const galleryImages = document.querySelectorAll('.photo-gallery img');
+            galleryImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    // יכול להוסיף פונקציונליות להגדלת תמונות
+                    console.log('תמונה נלחצה:', this.alt);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

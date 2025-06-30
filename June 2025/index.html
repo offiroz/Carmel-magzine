@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="ירחון שכונת כרמל - מאי 2025 - סיכום טיול לגולן">
+    <meta name="theme-color" content="#a5d8ff">
+    <title>ירחון שכונת כרמל - מאי 2025</title>
+    <style>
+        /* כללי */
+        body {
+            font-family: Calibri, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            background-color: #f9f9f9;
+            background-image: url('images/רקע לירחון.png');
+            background-repeat: repeat; /* חזרה של התמונה כמו רשת */
+            background-attachment: fixed; /* הרקע נשאר קבוע בזמן גלילה */
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* כותרות */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        header .logo {
+            width: 120px;
+            margin-bottom: 10px;
+        }
+        
+        .date {
+            text-align: left;
+            color: #333;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        
+        h1 {
+            font-size: 80px;
+            margin-bottom: -25px;
+            color: #333;
+            background-color: #a5d8ff;
+            padding: -20px;
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: 28px;
+            color: #1a5632;
+            margin-top: 30px;
+            border-bottom: 2px solid #a5d8ff;
+            padding-bottom: 10px;
+        }
+
+        h4 {
+            font-size: 46px;
+            margin-bottom: -25px;
+            color: #333;
+            background-color: #ffffff;
+            padding: -10px;
+            text-align: center;
+        }
+        
+        /* מאמרים */
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .article {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .article-box {
+            padding: 15px;
+            background-color: #f4f29e;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .riddle-box {
+            padding: 15px;
+            background-color: #5abcb9;
+            color: #000;
+            border-radius: 8px;
+        }
+        
+        /* תיבת פארק לחיצה */
+        .park-box {
+            padding: 15px;
+            background-color: #2f4b4d;
+            color: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            position: relative;
+            transition: background-color 0.3s;
+        }
+        
+        .park-box:hover {
+            background-color: #3a5c5e;
+        }
+        
+        .park-box:focus {
+            outline: 3px solid #a5d8ff;
+        }
+        
+        /* אינדיקטור אודיו */
+        .audio-indicator {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            opacity: 0.8;
+            transition: all 0.3s;
+        }
+        
+        .park-box:hover .audio-indicator {
+            opacity: 1;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .highlight-blue {
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        /* תמונות */
+        .img-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .img-container img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* תגובות */
+        .testimonials {
+            background-color: #a5d8ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .testimonials h3 {
+            text-align: center;
+            margin-top: 0;
+            font-size: 24px;
+        }
+        
+        .testimonial {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+                /* מיכל וידאו רספונסיבי */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* יחס 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+        
+        /* רספונסיביות */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 32px;
+                padding: 10px;
+            }
+            
+            h2 {
+                font-size: 24px;
+            }
+            
+            .logo-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .date {
+                text-align: center;
+                margin-top: 10px;
+            }
+            
+            .article-box, .riddle-box, .park-box, .highlight-blue {
+                padding: 12px;
+            }
+            
+            .testimonials {
+                padding: 15px;
+            }
+            
+            .back-to-top {
+                width: 35px;
+                height: 35px;
+                line-height: 35px;
+                bottom: 15px;
+                left: 15px;
+            }
+        }
+        
+        /* התאמה למסכים קטנים במיוחד */
+        @media (max-width: 480px) {
+            .container {
+                padding: 8px;
+            }
+            
+            h1 {
+                font-size: 28px;
+                padding: 8px;
+            }
+            
+            h2 {
+                font-size: 22px;
+                margin-top: 20px;
+            }
+            
+            h3 {
+                font-size: 20px;
+            }
+            
+            .article-box, .riddle-box, .park-box, .highlight-blue {
+                padding: 10px;
+                margin-bottom: 15px;
+            }
+            
+            .img-container {
+                margin: 10px 0;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+        }
+        
+        /* כפתור חזרה לראש הדף */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #5abcb9;
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 99;
+            font-size: 20px;
+            transition: background-color 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background-color: #4a9997;
+        }
+        
+        .logo-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-placeholder {
+            width: 130px;
+            height: 130px;
+            background-color: #7ab648;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        /* כפתור אודיו */
+        .audio-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-right: 8px;
+            vertical-align: middle;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: background-color 0.3s;
+        }
+        
+        .audio-button:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .audio-icon {
+            font-style: normal;
+            font-size: 18px;
+        }
+        
+        /* אנימציה לאינדיקטור אודיו מתנגן */
+        .playing {
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- אלמנט אודיו מוסתר -->
+        <audio id="park-audio" preload="none">
+            <source src="audio/איפה טיילנו.mp3" type="audio/mpeg">
+            הדפדפן שלך לא תומך בתגית האודיו.
+        </audio>
+        <header>
+            <div class="logo-section">
+                <div class="logo-placeholder">
+                    <img src="images/לוגו כפר.gif" alt="לוגו כפר תקווה" width="150" height="150">
+                </div>
+                <div class="date">מאי 2025</div>
+            </div>
+            <h4>ירחון שכונת כרמל</h4>
+            <div class="highlight-blue">
+                <h1>טיול לגולן</h1>
+            </div>
+        </header>
+
+            <div class="article">
+                <h2>איפה טיילנו?</h2>
+                <div class="article-box">
+                    <p>לגולן יצאנו בשמחה וצהלה, בפארק הירדן רגלינו טבלנו במים צלולים. בבוטיק אלרום לנו בחדרים נקיים, וקפה משובח חימם לנו את הלב.</p>
+                    <p>ביער האודם פגשנו חיות מרהיבות, ליד הג'ובה הגדולה חיוכים הנצחנו. במסעדת אל סולטן טעמנו מטעמים, טיול מושלם שכולו רגעים קסומים!</p>
+                </div>
+                
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/cUSctAnv864" 
+                            title="סרטון מהטיול לגולן" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+            <section class="content">
+                <div class="article">
+                <div class="park-box" id="park-box" role="button" tabindex="0" aria-label="פארק הירדן - לחץ להשמעת תיאור">
+                    <div class="audio-indicator" id="audio-indicator">🔊</div>
+                    <h3>פארק הירדן:</h3>
+                    <p>טיילנו בפארק הירדן שבצפון. זהו מקום ירוק עם עצים, דשא ומים זורמים. הלכנו בשבילי הפארק, שמענו ציפורים, ונהנינו מהנוף והאוויר הנעים.</p>
+                    <p>ישבנו יחד בצל, הצטלמנו ואכלנו ארוחת צהריים טעימה. המקום נעים, נגיש ומתאים לטיול עם קבוצה. חזרנו שמחים מהיום המיוחד בטבע!</p>
+                </div>
+                
+                <div class="riddle-box">
+                    <p>בצפון הוא נמצא, ליד הנהר,<br>
+                    אפשר לשבת שם, לשחק ולנגר.<br>
+                    יש שולחנות, פינות בצל ודרך רחבה –<br>
+                    לאן נסענו לטיול בשבוע שעבר?</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h3>חברים מספרים על הטיול:</h3>
+            <div class="testimonial">
+                <p><strong>בלהה:</strong> נהנתי בכל החלקים בטיול</p>
+                <p><strong>בני ציוני:</strong> היה לי כיף בכל הטיול ובחדר. היה לי קצת קשה בהליכה. נהנתי לשתות קפה.</p>
+                <p><strong>רוני הש"ש:</strong> היה לנו כיף להצטרף אליכם לטיול והתנהגתם למופת לכל האורך!</p>
+                <p><strong>אופיר:</strong> תודה לכולם וגם לצוות המדהים שלקח חלק ענק בכל שלב!</p>
+            </div>
+            <div class="testimonial">
+                <p><strong>צביקה קולפק:</strong> לצאת מהשגרה של העבודה</p>
+                <p><strong>דנה:</strong> הכי חשוב לצאת מהבית</p>
+                <p><strong>רוחלה:</strong> היה טיול מוצלח ונהדר, כולל המיצג בעמק הבכא</p>
+                <p><strong>דורון:</strong> נהנתי במיוחד בחווה ביער אודם.</p>
+                <p><strong>מיה:</strong> נהנתי בדיסקו ובחדר במלון.</p>
+            </div>
+        </section>
+
+        <h2>חוות החיות ביער אודם</h2>
+        <section class="content">
+            <div class="article">
+                <div class="article-box">
+                    <p>ביער האודם שוכנת חוות חיות קסומה, מקום שבו אפשר להתקרב אל בעלי חיים מסוגים שונים ולחוש אותם מקרוב. בביקורנו בחווה זכינו לחוויה מיוחדת של טיפול אישי בחיות - ליטפנו, האכלנו, ולמדנו על אורחות חייהן.</p>
+                    <p>החווה מציעה מפגש בלתי אמצעי עם מגוון רחב של בעלי חיים, מחיות משק מוכרות ועד יצורים מפתיעים יותר. הצוות המסור מעניק הדרכה מקצועית ומאפשר לכל מבקר להתנסות בטיפול בחיות בצורה בטוחה ומהנה.</p>
+                    <p>ביקור בחוות החיות מזמן לא רק הנאה, אלא גם למידה והעשרה על עולם החי והקשר המיוחד שבין האדם לבעלי החיים.</p>
+                </div>
+                <div class="img-container">
+                    <img src="images/farm1.jpg" alt="חוות החיות ביער אודם" loading="lazy">
+                </div>
+            </div>
+          
+            <div class="article">
+                <h2>בוטיק אלרום</h2>
+                <div class="highlight-blue">
+                    <p>בטיול בקיבוץ אלרום, שנמצא בצפון הארץ, ברמת הגולן. זה זהו הקיבוץ הגבוהה ביותר בארץ עם נוף מרהיב, אוויר נקי ושקט נעים.</p>
+                    <p>יש שם מלון בוטיק קטן ומיוחד, שבו לנו בלילה. המלון נעים מאוד, עם חדרים נוחים, אוכל טעים, ואנשים נחמדים שמארחים באהבה.</p>
+                    <p>זה מקום נהדר לנופש ולחופשה רגועה בטבע. ממליצים בחום!</p>
+                </div>
+                <div class="img-container">
+                    <img src="images/hotel1.jpg" alt="בוטיק אלרום" loading="lazy">
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <a href="#" class="back-to-top">↑</a>
+
+    <script>
+        // צמצום תפריט הניווט בעת גלילה למטה
+        window.addEventListener('scroll', function() {
+            var backToTopButton = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        // כפתור חזרה לראש הדף
+        document.querySelector('.back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // טעינת תמונות בעצלנות (Lazy Loading)
+        document.addEventListener('DOMContentLoaded', function() {
+            if ('loading' in HTMLImageElement.prototype) {
+                // הדפדפן תומך בטעינה עצלנית מובנית
+                const images = document.querySelectorAll('img');
+                images.forEach(img => {
+                    img.setAttribute('loading', 'lazy');
+                });
+            }
+            
+            // הוספת פונקציונליות אודיו
+            const parkBox = document.getElementById('park-box');
+            const parkAudio = document.getElementById('park-audio');
+            const audioIndicator = document.getElementById('audio-indicator');
+            
+            // טענה מוקדמת של האודיו
+            parkAudio.load();
+            
+            // הפעלת האודיו בלחיצה על תיבת הפארק
+            parkBox.addEventListener('click', function() {
+                toggleAudio();
+            });
+            
+            // הפעלת האודיו גם עם מקלדת (נגישות)
+            parkBox.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleAudio();
+                }
+            });
+            
+            // פונקציה להפעלה/עצירה של האודיו
+            function toggleAudio() {
+                if (parkAudio.paused) {
+                    // עצירת כל האודיו האחר שרץ
+                    document.querySelectorAll('audio').forEach(audio => audio.pause());
+                    
+                    // ניגון האודיו
+                    parkAudio.play()
+                        .then(() => {
+                            // הצלחה
+                            audioIndicator.classList.add('playing');
+                            parkBox.setAttribute('aria-label', 'פארק הירדן - לחץ לעצירת תיאור');
+                        })
+                        .catch(error => {
+                            // טיפול בשגיאות
+                            console.error('שגיאה בהפעלת האודיו:', error);
+                        });
+                } else {
+                    // עצירת האודיו
+                    parkAudio.pause();
+                    audioIndicator.classList.remove('playing');
+                    parkBox.setAttribute('aria-label', 'פארק הירדן - לחץ להשמעת תיאור');
+                }
+            }
+            
+            // איפוס האינדיקטור כשהאודיו מסתיים
+            parkAudio.addEventListener('ended', function() {
+                audioIndicator.classList.remove('playing');
+                parkBox.setAttribute('aria-label', 'פארק הירדן - לחץ להשמעת תיאור');
+            });
+        });
+    </script>
+</body>
+</html>

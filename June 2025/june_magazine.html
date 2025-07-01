@@ -716,7 +716,6 @@
 
             <!-- הכנת חבילות -->
             <div class="category-section">
-                <div class="category-title">הכנת חבילות</div>
                 <div class="photos-grid">
                     <div class="photo-item">
                         <img src="images/Pack making/1.jpeg" alt="הכנת חבילות 1">
@@ -738,7 +737,6 @@
 
             <!-- פעילויות ספורט -->
             <div class="category-section">
-                <div class="category-title">פעילויות ספורט</div>
                 <div class="photos-grid">
                     <div class="photo-item">
                         <img src="images/Diffrents Activities/7.jpeg" alt="פעילות ספורט 7" class="full-image">
@@ -756,7 +754,6 @@
 
             <!-- תעסוקה -->
             <div class="category-section">
-                <div class="category-title">תעסוקה כולל תעסוקה עם רכזי הסדנאות</div>
                 <div class="photos-grid">
                     <div class="photo-item">
                         <img src="images/Diffrents Activities/3.jpeg" alt="תעסוקה 3">
@@ -786,7 +783,6 @@
 
             <!-- פעילויות קוגניטיביות -->
             <div class="category-section">
-                <div class="category-title">פעילויות קוגניטיביות</div>
                 <div class="photos-grid">
                     <div class="photo-item">
                         <img src="images/Diffrents Activities/5.jpeg" alt="פעילות קוגניטיבית 5" class="full-image">
@@ -800,11 +796,479 @@
 
             <!-- פעילויות כיף -->
             <div class="category-section">
-                <div class="category-title">פעילויות כיף</div>
                 <div class="photos-grid">
                     <div class="photo-item">
                         <img src="images/Diffrents Activities/2.jpeg" alt="פעילות כיף 2">
                         <div class="photo-number">2</div>
                     </div>
                     <div class="photo-item">
+                        <img src="images/Diffrents Activities/9.jpeg" alt="פעילות כיף 9">
+                        <div class="photo-number">9</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="images/Diffrents Activities/10.jpeg" alt="פעילות כיף 10" class="full-image">
+                        <div class="photo-number">10</div>
+                    </div>
+                </div>
+                <div class="drop-zone" data-category="fun">
+                    גררו כאן את סוג הפעילות המתאים
+                </div>
+            </div>
+
+            <!-- פעילויות עם ש"ש -->
+            <div class="category-section">
+                <div class="photos-grid">
+                    <div class="photo-item">
+                        <img src="images/Diffrents Activities/1.jpeg" alt="פעילות עם ש״ש 1">
+                        <div class="photo-number">1</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="images/Diffrents Activities/4.jpeg" alt="פעילות עם ש״ש 4">
+                        <div class="photo-number">4</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="images/Diffrents Activities/8.jpeg" alt="פעילות עם ש״ש 8">
+                        <div class="photo-number">8</div>
+                    </div>
+                </div>
+                <div class="drop-zone" data-category="caregivers">
+                    גררו כאן את סוג הפעילות המתאים
+                </div>
+            </div>
+
+            <!-- ביקורי משפחות -->
+            <div class="category-section">
+                <div class="photos-grid">
+                    <div class="photo-item">
+                        <img src="images/Diffrents Activities/11.jpeg" alt="ביקור משפחות 11" class="full-image">
+                        <div class="photo-number">11</div>
+                    </div>
+                </div>
+                <div class="drop-zone" data-category="family-visits">
+                    גררו כאן את סוג הפעילות המתאים
+                </div>
+            </div>
+
+            <!-- מכללה עם ורדה -->
+            <div class="category-section">
+                <div class="photos-grid">
+                    <div class="photo-item">
+                        <img src="images/Diffrents Activities/16.jpeg" alt="מכללה עם ורדה 16" class="full-image">
+                        <div class="photo-number">16</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="images/Diffrents Activities/17.jpeg" alt="מכללה עם ורדה 17" class="full-image">
+                        <div class="photo-number">17</div>
+                    </div>
+                </div>
+                <div class="drop-zone" data-category="college">
+                    גררו כאן את סוג הפעילות המתאים
+                </div>
+            </div>
+
+            <!-- ניקיון -->
+            <div class="category-section">
+                <div class="photos-grid">
+                    <div class="photo-item">
+                        <img src="images/Diffrents Activities/18.jpeg" alt="ניקיון 18">
+                        <div class="photo-number">18</div>
+                    </div>
+                </div>
+                <div class="drop-zone" data-category="cleaning">
+                    גררו כאן את סוג הפעילות המתאים
+                </div>
+            </div>
+
+            <div class="game-controls">
+                <button class="btn" onclick="checkAnswers()">בדוק תשובות</button>
+                <button class="btn" onclick="resetGame()">התחל מחדש</button>
+                <button class="btn" onclick="showAnswers()">הצג תשובות נכונות</button>
+            </div>
+
+            <div id="message" class="message" style="display: none;"></div>
+        </div>
+
+        <!-- כאן יתווספו הכתבות החדשות -->
+        
+    </div>
+    
+    <a href="#" class="back-to-top">↑</a>
+
+    <script>
+        let draggedElement = null;
+        let correctCount = 0;
+        let incorrectCount = 0;
+        let autoScrollInterval = null;
+        let isScrolling = false;
+
+        // הוספת event listeners לגרירה
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.activity-card');
+            const dropZones = document.querySelectorAll('.drop-zone');
+
+            // הגדרת גרירה לכרטיסים
+            cards.forEach(card => {
+                card.addEventListener('dragstart', handleDragStart);
+                card.addEventListener('dragend', handleDragEnd);
+                
+                // תמיכה במסכי מגע
+                card.addEventListener('touchstart', handleTouchStart, { passive: false });
+                card.addEventListener('touchmove', handleTouchMove, { passive: false });
+                card.addEventListener('touchend', handleTouchEnd, { passive: false });
+            });
+
+            // הגדרת זונות הטלה
+            dropZones.forEach(zone => {
+                zone.addEventListener('dragover', handleDragOver);
+                zone.addEventListener('dragenter', handleDragEnter);
+                zone.addEventListener('dragleave', handleDragLeave);
+                zone.addEventListener('drop', handleDrop);
+            });
+
+            // מעקב אחר תנועת העכבר לגלילה אוטומטית
+            document.addEventListener('dragover', handleAutoScroll);
+            document.addEventListener('touchmove', handleAutoScrollTouch, { passive: false });
+        });
+
+        function handleDragStart(e) {
+            draggedElement = this;
+            this.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+            startAutoScrollMonitoring();
+        }
+
+        function handleDragEnd(e) {
+            this.classList.remove('dragging');
+            draggedElement = null;
+            stopAutoScrollMonitoring();
+        }
+
+        // תמיכה במסכי מגע
+        let touchStartY = 0;
+        let touchElement = null;
+
+        function handleTouchStart(e) {
+            touchElement = this;
+            touchStartY = e.touches[0].clientY;
+            this.classList.add('dragging');
+            startAutoScrollMonitoring();
+        }
+
+        function handleTouchMove(e) {
+            if (!touchElement) return;
+            
+            e.preventDefault();
+            const touch = e.touches[0];
+            
+            // גלילה אוטומטית
+            checkAutoScrollTouch(touch.clientY);
+            
+            // העברת האלמנט
+            touchElement.style.position = 'fixed';
+            touchElement.style.zIndex = '1000';
+            touchElement.style.left = touch.clientX - 50 + 'px';
+            touchElement.style.top = touch.clientY - 30 + 'px';
+            
+            // בדיקה אם אנחנו מעל אזור הטלה
+            const elementBelow = document.elementFromPoint(touch.clientX, touch.clientY);
+            const dropZone = elementBelow?.closest('.drop-zone');
+            
+            // הסרת הדגשה מכל האזורים
+            document.querySelectorAll('.drop-zone').forEach(zone => {
+                zone.classList.remove('drag-over');
+            });
+            
+            // הוספת הדגשה לאזור הנוכחי
+            if (dropZone) {
+                dropZone.classList.add('drag-over');
+            }
+        }
+
+        function handleTouchEnd(e) {
+            if (!touchElement) return;
+            
+            stopAutoScrollMonitoring();
+            
+            const touch = e.changedTouches[0];
+            const elementBelow = document.elementFromPoint(touch.clientX, touch.clientY);
+            const dropZone = elementBelow?.closest('.drop-zone');
+            
+            // איפוס עיצוב האלמנט
+            touchElement.style.position = '';
+            touchElement.style.zIndex = '';
+            touchElement.style.left = '';
+            touchElement.style.top = '';
+            touchElement.classList.remove('dragging');
+            
+            // הסרת הדגשה מכל האזורים
+            document.querySelectorAll('.drop-zone').forEach(zone => {
+                zone.classList.remove('drag-over');
+            });
+            
+            // ביצוע הטלה אם נמצא אזור מתאים
+            if (dropZone) {
+                performDrop(dropZone, touchElement);
+            }
+            
+            touchElement = null;
+        }
+
+        function performDrop(dropZone, card) {
+            // בדיקה אם יש כבר כרטיס באזור הטלה זה
+            const existingCard = dropZone.querySelector('.dropped-card');
+            if (existingCard) {
+                // החזרת הכרטיס הקיים לאזור הכרטיסים
+                document.getElementById('activity-cards').appendChild(existingCard);
+                existingCard.classList.remove('dropped-card');
+                existingCard.draggable = true;
+                existingCard.style.display = 'block';
+            }
+
+            // הוספת הכרטיס החדש
+            const droppedCard = card.cloneNode(true);
+            droppedCard.classList.add('dropped-card');
+            droppedCard.draggable = false;
+            
+            dropZone.innerHTML = '';
+            dropZone.appendChild(droppedCard);
+
+            // הסרת הכרטיס המקורי
+            card.style.display = 'none';
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+        }
+
+        function handleDragEnter(e) {
+            e.preventDefault();
+            this.classList.add('drag-over');
+        }
+
+        function handleDragLeave(e) {
+            this.classList.remove('drag-over');
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            this.classList.remove('drag-over');
+
+            if (draggedElement) {
+                performDrop(this, draggedElement);
+            }
+        }
+
+        // גלילה אוטומטית
+        function startAutoScrollMonitoring() {
+            if (autoScrollInterval) return;
+            
+            autoScrollInterval = setInterval(() => {
+                if (isScrolling) {
+                    // המשך הגלילה
+                }
+            }, 50);
+        }
+
+        function stopAutoScrollMonitoring() {
+            if (autoScrollInterval) {
+                clearInterval(autoScrollInterval);
+                autoScrollInterval = null;
+            }
+            isScrolling = false;
+        }
+
+        function handleAutoScroll(e) {
+            if (!draggedElement) return;
+            checkAutoScroll(e.clientY);
+        }
+
+        function handleAutoScrollTouch(e) {
+            if (!touchElement) return;
+            const touch = e.touches[0];
+            checkAutoScrollTouch(touch.clientY);
+        }
+
+        function checkAutoScroll(mouseY) {
+            const scrollThreshold = 100; // פיקסלים מהקצה
+            const scrollSpeed = 10;
+            const windowHeight = window.innerHeight;
+            
+            isScrolling = false;
+            
+            // גלילה למעלה
+            if (mouseY < scrollThreshold) {
+                window.scrollBy(0, -scrollSpeed);
+                isScrolling = true;
+            }
+            // גלילה למטה
+            else if (mouseY > windowHeight - scrollThreshold) {
+                window.scrollBy(0, scrollSpeed);
+                isScrolling = true;
+            }
+        }
+
+        function checkAutoScrollTouch(touchY) {
+            const scrollThreshold = 120; // פיקסלים מהקצה (יותר גדול למגע)
+            const scrollSpeed = 15;
+            const windowHeight = window.innerHeight;
+            
+            isScrolling = false;
+            
+            // גלילה למעלה
+            if (touchY < scrollThreshold) {
+                window.scrollBy(0, -scrollSpeed);
+                isScrolling = true;
+            }
+            // גלילה למטה
+            else if (touchY > windowHeight - scrollThreshold) {
+                window.scrollBy(0, scrollSpeed);
+                isScrolling = true;
+            }
+        }
+
+        function checkAnswers() {
+            const dropZones = document.querySelectorAll('.drop-zone');
+            let correct = 0;
+            let incorrect = 0;
+
+            dropZones.forEach(zone => {
+                const droppedCard = zone.querySelector('.dropped-card');
+                if (droppedCard) {
+                    const cardActivity = droppedCard.getAttribute('data-activity');
+                    const zoneCategory = zone.getAttribute('data-category');
+
+                    if (cardActivity === zoneCategory) {
+                        zone.classList.add('correct');
+                        zone.classList.remove('incorrect');
+                        correct++;
+                    } else {
+                        zone.classList.add('incorrect');
+                        zone.classList.remove('correct');
+                        incorrect++;
+                    }
+                } else {
+                    zone.classList.remove('correct', 'incorrect');
+                }
+            });
+
+            correctCount = correct;
+            incorrectCount = incorrect;
+
+            const messageEl = document.getElementById('message');
+            if (correct === dropZones.length) {
+                messageEl.textContent = '🎉 מעולה! כל התשובות נכונות!';
+                messageEl.className = 'message success';
+            } else {
+                messageEl.textContent = `יש לכם ${correct} תשובות נכונות ו-${incorrect} תשובות שגויות. נסו שוב!`;
+                messageEl.className = 'message error';
+            }
+            messageEl.style.display = 'block';
+        }
+
+        function resetGame() {
+            // איפוס כל הכרטיסים
+            const cards = document.querySelectorAll('.activity-card');
+            const activityCardsContainer = document.getElementById('activity-cards');
+            
+            cards.forEach(card => {
+                card.style.display = 'block';
+                card.draggable = true;
+                card.classList.remove('dropped-card');
+                if (!card.parentElement.classList.contains('activity-cards')) {
+                    activityCardsContainer.appendChild(card);
+                }
+            });
+
+            // איפוס זונות הטלה
+            const dropZones = document.querySelectorAll('.drop-zone');
+            dropZones.forEach(zone => {
+                zone.innerHTML = 'גררו כאן את סוג הפעילות המתאים';
+                zone.classList.remove('correct', 'incorrect', 'drag-over');
+            });
+
+            // איפוס ציון
+            correctCount = 0;
+            incorrectCount = 0;
+
+            // הסתרת הודעות
+            document.getElementById('message').style.display = 'none';
+        }
+
+        function showAnswers() {
+            const answers = {
+                'pack-making': '📦 הכנת חבילות',
+                'sports': '⚽ פעילויות ספורט',
+                'work': '💼 תעסוקה',
+                'cognitive': '🧠 פעילות קוגניטיבית',
+                'fun': '🎉 פעילויות כיף',
+                'caregivers': '👥 פעילויות עם ש"ש',
+                'family-visits': '👨‍👩‍👧‍👦 ביקורי משפחות',
+                'college': '🎓 מכללה עם ורדה',
+                'cleaning': '🧹 ניקיון בבתים ומחוץ לבתים'
+            };
+
+            const dropZones = document.querySelectorAll('.drop-zone');
+            dropZones.forEach(zone => {
+                const category = zone.getAttribute('data-category');
+                const answerText = answers[category];
+                
+                zone.innerHTML = `<div class="dropped-card" style="pointer-events: none;">${answerText}</div>`;
+                zone.classList.add('correct');
+                zone.classList.remove('incorrect');
+            });
+
+            // הסתרת כל הכרטיסים
+            const cards = document.querySelectorAll('.activity-card');
+            cards.forEach(card => {
+                if (!card.classList.contains('dropped-card')) {
+                    card.style.display = 'none';
+                }
+            });
+
+            const messageEl = document.getElementById('message');
+            messageEl.textContent = '✅ הצגת כל התשובות הנכונות';
+            messageEl.className = 'message success';
+            messageEl.style.display = 'block';
+        }
+
+        // כפתור חזרה לראש הדף
+        window.addEventListener('scroll', function() {
+            var backToTopButton = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        document.querySelector('.back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // טעינת תמונות בעצלנות
+        document.addEventListener('DOMContentLoaded', function() {
+            if ('loading' in HTMLImageElement.prototype) {
+                const images = document.querySelectorAll('img');
+                images.forEach(img => {
+                    img.setAttribute('loading', 'lazy');
+                });
+            }
+            
+            // פונקציונליות להגדלת תמונות בגלריה
+            const galleryImages = document.querySelectorAll('.photo-gallery img');
+            galleryImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    // יכול להוסיף פונקציונליות להגדלת תמונות
+                    console.log('תמונה נלחצה:', this.alt);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
                         
